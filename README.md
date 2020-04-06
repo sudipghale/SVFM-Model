@@ -1,2 +1,71 @@
 # SVFM-Model
 Graphics 
+
+#----------------------------------------------------------------------
+Purpose:
+
+  * Demonstrate ability to load a SVFM (Simple Vertex Face Model)
+    file.
+
+  * Demonstrate ability to write some (simple) C code.
+
+#----------------------------------------------------------------------
+Background:
+
+  * SVFM files are as discussed in class:
+    - Blank lines are to be ignored.  (A blank line has no
+      characters at all or is just whitespace.)
+
+    - Lines with '#' as the first non-whitespace character are
+      comments and are to be ignored.
+
+    - Lines with 'v' as the first non-whitespace character are
+      Vertex lines.  There will be three numbers following the
+      'v': the X, Y, and Z coordinates of the vertex.  The 'v' and
+      the coordinates will be separated by whitespace.  Example:
+
+        v 27.34  16  8.9
+
+    - Lines with 'f' as the first non-whitespace character are
+      Face lines.  There will be three integers following the
+      'f': the numbers of the three vertices making up the face.
+      (Faces are triangles.)  The 'f' and the vertex numbers will
+      be separated by whitespace.  Example:
+
+        f  17   23   56
+
+      In the SVFM file, the vertices are numbered 1 to n.  In
+      your program, the vertices will be refered to as 0 to n-1.
+      Remember to subtract one from each vertex number in each
+      face as you read them in.
+
+    - If a line starts with any other non-whitespace character, it
+      should be silently ignored.  ('silently' means you should
+      not print an error message.  Just ignore it.)
+
+#----------------------------------------------------------------------
+
+When you have done so, compile and run everything as shown.
+     You should observe the given output.
+
+$ gcc -o hmwk_01 hmwk_01.c model.c vertex.c face.c
+$ ./hmwk_01 pyramid.svfm
+#- Model parameters --------------------
+Vertex count :     5
+Face count   :     6
+
+#- Vertex list -------------------------
+  [    0]       0.000000,      0.000000,      0.000000
+  [    1]       0.800000,      0.000000,      0.000000
+  [    2]       0.000000,      0.800000,      0.000000
+  [    3]       0.800000,      0.800000,      0.000000
+  [    4]       0.400000,      0.400000,      0.700000
+
+#- Face list ---------------------------
+  [    0]      3,     1,     0
+  [    1]      2,     3,     0
+  [    2]      1,     4,     0
+  [    3]      4,     2,     0
+  [    4]      1,     3,     4
+  [    5]      2,     4,     3
+#---------------------------------------
