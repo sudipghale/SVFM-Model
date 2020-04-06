@@ -8,13 +8,16 @@
 Model *allocModel( int numVertices, int numFaces )
 {
   Model *model = (Model*) calloc(1,sizeof(Model) );
+
   if(!model)
   {
     printf("calloc failed\n");
     exit(1);
   }
-  Vertex *ptr_vertex = calloc (numVertices, sizeof(Vertex));
-  Face *ptr_faces = calloc(numFaces, sizeof(Face));
+
+  Vertex *ptr_vertex = (Vertex*) calloc (numVertices, sizeof(Vertex));
+  Face *ptr_faces = (Face*) calloc(numFaces, sizeof(Face));
+
   if(!ptr_vertex || !ptr_faces)
   {
     printf("calloc for vertix or faces failed \n");
@@ -60,10 +63,12 @@ void freeModel( Model *model )
   {
     free(model->m_vertex);
   }
+
   if(model->m_face != NULL)
   {
     free(model->m_face);  
   }
+  
   free(model);
 
 }
