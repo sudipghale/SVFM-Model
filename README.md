@@ -50,11 +50,14 @@ When you have done so, compile and run everything as shown.
 
 $ gcc -o hmwk_01 hmwk_01.c model.c vertex.c face.c
 $ ./hmwk_01 pyramid.svfm
+
 #- Model parameters --------------------
+
 Vertex count :     5
 Face count   :     6
 
 #- Vertex list -------------------------
+
   [    0]       0.000000,      0.000000,      0.000000
   [    1]       0.800000,      0.000000,      0.000000
   [    2]       0.000000,      0.800000,      0.000000
